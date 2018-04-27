@@ -4,45 +4,25 @@
 	<title>Tracking</title>
 	<style>
 .button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #ffff4d;
-  border: none;
-  color: #FFFFFF;
+  padding: 5px 5px;
+  font-size: 24px;
   text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  outline: none;
+  color: #fff;
+  background-color:white;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+.button:hover {background-color: white}
 
-.button span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+.button:active {
+  background-color: white;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
             .syotimer{
             text-align: center;
             margin: 30px auto 0;
@@ -67,15 +47,20 @@
             text-transform: uppercase;
         }
     </style>
-<script type="text/javascript" src="js/syotimer.examples.js"></script>
+    <script type="text/javascript" src="libs/jquery.1.7.2.js"></script>
+    <script type="text/javascript" src="build/jquery.syotimer.min.js"></script>
+    <script type="text/javascript" src="js/service.js"></script>
+    <script type="text/javascript" src="js/syotimer.examples.js"></script>
 </head>
 <body style="background-color:black;">
 <center>
 <br><br><br><br>
 <button class="button" style="vertical-align:middle"><a href="reports/a00143583r.html" >REPORTS</a><br></button>
 <button class="button" style="vertical-align:middle"><a href="images/img.html">IMAGES</a></button>
-
+	
+  <center><h1 class="glow" style="color:red;font-family:felipa;font-size:40px;text-shadow: 2px 2px  yellow;">TAT DAYS TO GET OVER</h1></center>	
   <div class="glow" id="simple-timer"></div>
+  <button class="button"><a href="http://tggtracking.com/locator/index.html?t=3397d881d60be79944c536d407c4a20c25D06C469398B801306F407B3E54563FAA26BDFF"><b>current location</button><br><br><br>
 
 </center>
 </body>
