@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+.zoom {
+    padding: 50px;
+    transition: transform .2s; /* Animation */
+    width: 400px;
+    height: 350px;
+    border-radius: 25px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.8); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+</style>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body style="background-color:black;">
+
+<div  class="row">
+    <div class="col-sm-4">
+    <img class="zoom" src="5/1.jpg" >
+    </div>
+    <div  class="col-sm-4"> 
+    <img class="zoom" src="5/2.jpg" >
+    </div>
+    <div  class="col-sm-4">
+    <img class="zoom" src="5/3.jpg" >
+    </div>
+</div> 
+
+<div  class="row">
+  <div class="col-sm-4"> 
+    <img class="zoom" src="5/4.jpg" >
+    </div>
+    <div class="col-sm-4">
+    <img class="zoom" src="5/5.jpg" >
+    </div>
+    <div class="col-sm-4">
+    <img class="zoom" src="5/6.jpg" >
+    </div>
+</div> 
+
+</body>
+</html>

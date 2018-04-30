@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tracking</title>
+<style>
+.button {
+  padding: 5px 5px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color:white;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: white}
+
+.button:active {
+  background-color: white;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+            .syotimer{
+            text-align: center;
+            margin: 30px auto 0;
+            padding: 0 0 10px;
+        }
+        .syotimer-cell{
+            display: inline-block;
+         margin: 0 3px;   
+         width: 77px;
+            background: url(img/timer.png) no-repeat 0 0;
+        }
+        .syotimer-cell__value{
+            font-size: 25px;
+            color: white;
+            height: 81px;
+            line-height: 81px;
+            margin: 0 0 5px;
+        }
+        .syotimer-cell__unit{
+            font-family: Arial, serif;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+    </style>
+    <script type="text/javascript" src="libs/jquery.1.7.2.js"></script>
+    <script type="text/javascript" src="build/jquery.syotimer.min.js"></script>
+    <script type="text/javascript" src="js/service.js"></script>
+    <script type="text/javascript" >jQuery(function($){
+    /* Simple Timer. The countdown to 20:30 2100.05.09 */
+    $('#simple-timer').syotimer({
+        year: 2018,
+        month: 05,
+        day: 02,
+        hour: 22,
+        minute: 00
+    });
+    $('#expired-timer').syotimer({
+        year: 1990,
+        headTitle: '<h3>Timer with header and footer. Countdown is over</h3>',
+        footTitle: '<i style="color: brown;">Footer of timer.</i>'
+    });
+    $('#expired-timer_event').syotimer({
+        year: 2000,
+        month: 12,
+        day: 31,
+        hour: 0,
+        minute: 0,
+
+        headTitle: '<h3>Timer with header and footer. Countdown is over</h3>',
+        footTitle: '<i style="color: brown;">Footer of timer.</i>',
+        afterDeadline: function(syotimer){
+            syotimer.bodyBlock
+                .html(
+                    '<p>The countdown is finished 00:00 2000.12.31</p>'
+                );
+            syotimer.headBlock
+                .html(
+                    '<h3>Callback after the end of the countdown timer</h3>'
+                );
+            syotimer.footBlock
+                .html(
+                    '<em style="color:brown;">' +
+                        'Footer of timer after countdown is finished' +
+                    '</em>'
+                );
+        }
+    });
+    $('#periodic-timer_period_minutes').syotimer({
+        year: 2015,
+        month: 1,
+        day: 1,
+        hour: 0,
+        minute: 0,
+        layout: 'hms',
+        headTitle:
+            '<h3>' +
+                'Periodic Timer. ' +
+                'The countdown begins first through each 3 minutes. ' +
+                'Effect of fading in' +
+            '</h3>',
+        doubleNumbers: false,
+        effectType: 'opacity',
+
+        periodUnit: 'm',
+        periodic: true,
+        periodInterval: 3
+    });
+    $('#periodic-timer_period_days').syotimer({
+        year: 2015,
+        month: 1,
+        day: 1,
+        hour: 20,
+        minute: 0,
+        layout: 'hms',
+        headTitle: '<h3>' +
+                'Periodic Timer. ' +
+                'The countdown begins first through each 10 days' +
+            '</h3>' +
+            '<p style="font-size:.8em;color:#666;">' +
+                'The date equal 20:00 2015.01.01' +
+            '</p>',
+        periodic: true,
+        periodInterval: 10,
+        periodUnit: 'd'
+    });
+    $('#layout-timer_only-seconds').syotimer({
+        hour: 0,
+        minute: 0,
+        second: 0,
+        layout: 's',
+
+        headTitle: '<h3>Display only seconds</h3>' +
+            '<p>Demonstrate layout. Period is equal 2 hours.</p>',
+
+        periodic: true,
+        periodInterval: 2,
+        periodUnit: 'h'
+    });
+    $('#layout-timer_reversed-units').syotimer({
+        hour: 0,
+        minute: 0,
+        second: 0,
+        layout: 'smhd',
+
+        headTitle: '<h3>Units of countdown in reverse order</h3>' +
+            '<p>Demonstrate layout. ' +
+            'Period is equal 2 days and 5 hours.</p>',
+        effectType: 'opacity',
+
+        periodic: true,
+        periodInterval: 53,
+        periodUnit: 'h'
+    });
+    $('#layout-timer_mixed-units').syotimer({
+        hour: 0,
+        minute: 0,
+        second: 0,
+        layout: 'md',
+        headTitle: '<h3>Display only days and minutes in reverse order</h3>' +
+            '<p>Demonstrate layout. ' +
+            'Period is equal 1 days, 5 hours and 37 minutes.</p>',
+        periodic: true,
+        periodInterval: 1777,
+        periodUnit: 'm'
+    });
+    $('#periodic-timer_timezone_given').syotimer({
+        year: 2000,
+        month: 7,
+        day: 1,
+        hour: 18,
+        minute: 0,
+        timeZone: 2,
+        ignoreTransferTime: true,
+        layout: 'hms',
+        headTitle: '<h3>Countdown timer with given timezone</h3>' +
+            '<p>The deadline is 18:00:00 by the time Rome, Italy (UTC+2)</p>',
+        periodic: true,
+        periodInterval: 1,
+        periodUnit: 'd'
+    });
+    var EFFECT_TYPES = ['opacity', 'none'],
+        LANGUAGES = ['eng', 'rus', 'heb'],
+        changeOptionsTimer = $('#periodic-timer_change-options'),
+        changeOptionsEffectType = $('#change_options__effect-type'),
+        changeOptionsDoubleNumbers = $('#change_options__double-numbers'),
+        changeOptionsLang = $('#change_options__lang');
+
+    changeOptionsTimer.syotimer({
+        periodic: true,
+        periodInterval: 10,
+        periodUnit: 'd',
+        headTitle: '<div>Effect type: ' +
+                '<span class="option option_type_effect-type">none</span>' +
+            '</div>' +
+            '<div>Use double numbers: ' +
+                '<span class="option option_type_double-numbers">true</span>' +
+            '</div>' +
+            '<div>Language: ' +
+                '<span class="option option_type_language">eng</span>' +
+            '</div>'
+    });
+    /**
+     * Getting a next of current index of array by circle
+     * @param array
+     * @param currentIndex
+     * @returns {*}
+     */
+    function getNextIndex(array, currentIndex) {
+        return ( currentIndex === (array.length - 1) )
+            ? 0
+            : (currentIndex + 1);
+    }
+    /**
+     * Update values in header title of timer `#periodic-timer_change-options`
+     */
+    function updateOptionTitles() {
+        var effectIndex = parseInt(changeOptionsEffectType.data('index')),
+            doubleNumberIndex = parseInt(changeOptionsDoubleNumbers.data('index')),
+            languageIndex = parseInt(changeOptionsLang.data('index')),
+            blocks = changeOptionsTimer.data('syotimer-blocks');
+        blocks.headBlock.find('.option_type_effect-type')
+            .html(EFFECT_TYPES[effectIndex]);
+        blocks.headBlock.find('.option_type_double-numbers')
+            .html((doubleNumberIndex) ? 'true' : 'false');
+        blocks.headBlock.find('.option_type_language')
+            .html(LANGUAGES[languageIndex]);
+    }
+    changeOptionsEffectType.click(function() {
+        var button = $(this),
+            effectIndex = parseInt( button.data('index') ),
+            nextEffectIndex = getNextIndex(EFFECT_TYPES, effectIndex);
+        button.data('index', nextEffectIndex);
+        changeOptionsTimer.syotimer(
+            'setOption',
+            'effectType',
+            EFFECT_TYPES[nextEffectIndex]
+        );
+        updateOptionTitles();
+    });
+    changeOptionsDoubleNumbers.click(function() {
+        var button = $(this),
+            index = parseInt( button.data('index') ),
+            useDoubleNumbers = Math.abs(index - 1);
+        button.data('index', useDoubleNumbers);
+        changeOptionsTimer.syotimer(
+            'setOption',
+            'doubleNumbers',
+            useDoubleNumbers === 1
+        );
+        updateOptionTitles();
+    });
+    changeOptionsLang.click(function() {
+        var button = $(this),
+            langIndex = parseInt( button.data('index') ),
+            nextLangIndex = getNextIndex(LANGUAGES, langIndex);
+        button.data('index', nextLangIndex);
+        changeOptionsTimer.syotimer(
+            'setOption',
+            'lang',
+            LANGUAGES[nextLangIndex]
+        );
+        updateOptionTitles();
+    });
+$.syotimerLang.neng = {
+    second: ['secondone', 'secondfive', 'seconds'],
+    minute: ['minuteone', 'minutefive', 'minutes'],
+    hour: ['hourone', 'hourfive', 'hours'],
+    day: ['dayone', 'dayfive', 'days'],
+    handler: 'nengNumeral'
+};
+$.syotimerLang.nengNumeral = function(number) {
+    var lastDigit = number % 10;
+    if ( lastDigit === 1 ) {
+        return 0;
+    } else if ( lastDigit === 5) {
+        return 1;
+    } else {
+        return 2;
+    }
+};
+$('#periodic-timer_localization_new-english').syotimer({
+    lang: 'neng',
+    layout: 'ms',
+    periodic: true,
+    periodInterval: 6,
+    periodUnit: 'm',
+    headTitle: '<h3>Adding new language</h3>' +
+        '<p>Demonstrate adding the new language of signatures.</p>'
+});});</script>
+
+</head>
+<body style="background-color:black;">
+<center>
+<br><br><br><br>
+<a href="reports/17.a00143736r.html" style="background-color:white;padding:10px;border-radius:10px;">REPORTS</a><br><br><br>
+<a href="april-28/img3.html" style="background-color:white;padding:10px;border-radius:10px;">IMAGES</a>
+  <br><br>
+  <center><h1 class="glow" style="color:red;font-family:felipa;font-size:40px;text-shadow: 2px 2px  yellow;">TAT DAYS TO GET OVER</h1></center>
+
+  <div class="glow" style="color:white;" id="simple-timer"></div>
+  <br><a href="http://www.aaumconnect.com/LiveTrack.aspx?TrackNo=918105470724" style="background-color:white;padding:10px;border-radius:10px;"><b>CURRENT LOCATION</a><br><br><br>
+
+</center>
+</body>
+</html>
