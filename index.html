@@ -78,6 +78,29 @@ li a:hover {
         to { text-shadow: 0 0 20px red; }
     }
 </style>
+<style> 
+.imge{
+    width: 100px;
+    
+    background-color: red;
+    position: relative;
+    -webkit-animation: myfirst 5s linear 2s infinite alternate; /* Chrome, Safari, Opera */
+    animation: myfirst 5s linear 2s infinite alternate;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    0%   { left:0px; top:0px;}
+    100%  {left:200px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    0%   {background-color:red; right:0px; top:0px;}
+    100%  {background-color:yellow; right:200px; top:0px;}
+   
+}
+</style>
 </head>
 <body >
 <img src="img/3.jpg" style="width:100%;height:800px;position:fixed;z-index:-1">
@@ -88,8 +111,7 @@ li a:hover {
     <a href="year/2018.html">2018</a>
   </div>
 </div>
-
 <center><h1 class="glow" style="color:red;font-family:felipa;font-size:40px;text-shadow: 2px 2px  yellow;">TRACKING REPORT</h1></center>
-<center><img src="img/truck1.png" height="130px;"></center>
+<center><img class="imge" src="img/truck1.png" height="130px;"></center>
 </body>
 </html>

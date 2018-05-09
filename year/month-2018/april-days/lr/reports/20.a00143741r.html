@@ -59,15 +59,18 @@ th {
   <tr><td>TRANSACTION MODE</td><td>NORMAL</td>                                                          </tr>
   <tr><td>AGREED TAT DAYS</td><td>6</td>                                                           </tr>
   <tr><td>EXPECTED TAT DAYS</td><td>6</td>                                                         </tr> 
-  <tr><td>TOTAL KM</td><td>2380</td>                                                                  </tr>
-  <tr><td>PENDING KM</td><td><p id="demo"></p></td> 
+  <tr><td>TOTAL KM</td><td><i id="total"></p></td>                                                                  </tr>
+  <tr><td>COVERED KM</td><td><i id="covered"></td> 
+  <tr><td>PENDING KM</td><td><i id="pending"></p></td> 
   <script>
     var x = 2380;
     var y = 1363;
     var z = x - y;
-    document.getElementById("demo").innerHTML = z;
+    document.getElementById("total").innerHTML = x;
+    document.getElementById("covered").innerHTML = y;
+    document.getElementById("pending").innerHTML = z;
 </script>                                                               </tr>
-  <tr><td>KM COVERED IN PAST 24 HOURS</td><td>610</td>                                               </tr>
+  <tr><td>KM COVERED IN PAST 24 HOURS</td><td>450</td>                                               </tr>
   <tr><td>NO OF TIME OVER SPEED MORE THAN 70 KM</td><td>2</td>                                     </tr>
   <tr><td>IDLE HOURS IN LAST 24 HOURS</td><td>5</td>                                               </tr>
   <tr><td>TRUCK DELIVERY AS PER SHEDULE</td><td>YES</td>                                             </tr>
