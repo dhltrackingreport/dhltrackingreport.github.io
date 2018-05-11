@@ -20,16 +20,19 @@
   <style>
 table {
     border-collapse: collapse;
-    width: 600px;
+    border-style:solid;
+
+    width: 500px;
 }
 
 th, td {
     text-align: left;
     padding: 4px;
+     border: 1px solid black;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
-
+tr:nth-child(odd){background-color:  #f2f2f2}
 th {
     background-color: #4CAF50;
     color: white;
@@ -342,9 +345,11 @@ $('#periodic-timer_localization_new-english').syotimer({
 });});</script>
 
 </head>
-<body style="background-color:#99e6ff;">
-<center><h2 class="glow">DANFOSS TRACKING REPORT</h2></center>
-<h3 style="position:absolute;top:10px;color:red;text-shadow: 2px 2px black;"><b><u>CUSTOMER NAME: VOLTAS</u></b></h3><h3 style="position:absolute;color:red;text-shadow: 2px 2px black;"><b><u>LOCATION: MUMBAI</u></b></h3>
+<body style="background-color:black;">
+<center><h2 class="glow" style="color:white;"><u>DANFOSS TRACKING REPORT</u></h2></center>
+<h3 style="position:absolute;top:10px;color:white"><b><u>CUSTOMER NAME: VOLTAS</u></b></h3><h3 style="position:absolute;color:white"><b><u>LOCATION: MUMBAI</u></b></h3>
+<img src="logo/1.png" style="position:absolute;z-index:-1;top:140px;width:300px;">
+<img src="logo/2.jpg" style="position:absolute;z-index:-1;right:10px;top:140px;width:280px;height:100px;">
 <center>
 <table>
   <tr>
@@ -381,19 +386,20 @@ $('#periodic-timer_localization_new-english').syotimer({
   <tr><td>NO OF TIME OVER SPEED MORE THAN 70 KM</td><td>0</td>                                     </tr>
   <tr><td>IDLE HOURS IN LAST 24 HOURS</td><td>16</td>                                               </tr>
   <tr><td>TRUCK DELIVERY AS PER SHEDULE</td><td>YES</td>                                             </tr>
-  <tr><td>STATUS</td><td>INTRANSIT IN VANTUMURI KARNATAKA</td>                                             </tr>
+  <tr><td>STATUS</td><td>WAITING FOR UNLOADING</td>                                             </tr>
 </table>
 </center>
   <br><br>
-  <center><h1 class="glow" >TAT DAYS TO GET OVER</h1></center>
+  <div style="color:white;background-color:black;">
+  <center><h1 class="glow" style="color:white;background-color:black;padding:10px;"><u>TAT DAYS TO GET OVER</u></h1></center>
 
-  <div class="glow" style="color:white;" id="simple-timer"></div>
+  <div class="glow" style="color:white;background-color:black;" id="simple-timer"></div>
   <center>
   <br><a href="http://tggtracking.com/locator/index.html?t=3397d881d60be79944c536d407c4a20cD40D9BF48643BD274CAE81F0FE7C9C5BEDF8E66B" target="_blank" style="background-color:white;padding:10px;border-radius:10px;"><b>CURRENT LOCATION</a><br><br><br></center>
 
-<center><h1 class="glow" >LOADING AND CONSIGNE IMAGES</h1></center>
+<center><h1 class="glow" style="color:white;"><u>LOADING AND CONSIGNE IMAGES</u></h1></center>
 
-  <div  class="row">
+  <div  class="row" style="background-color:white;">
     <div class="col-sm-4">
     <img class="zoom" src="8-may/406/1.jpg" >
     </div>
@@ -404,8 +410,8 @@ $('#periodic-timer_localization_new-english').syotimer({
     <img class="zoom" src="8-may/406/3.jpg" >
     </div>
 </div> 
-
-<div  class="row">
+<hr>
+<div  class="row" style="background-color:white;">
   <div class="col-sm-4"> 
     <img class="zoom" src="8-may/406/4.jpg" >
     </div>
@@ -416,5 +422,6 @@ $('#periodic-timer_localization_new-english').syotimer({
     <img class="zoom" src="8-may/406/6.jpg" >
     </div>
 </div> 
+<hr>
 </body>
 </html>
